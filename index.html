@@ -1,0 +1,1410 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Informe SaaS 2026 | Tendencias globales y oportunidades</title>
+    <style>
+      :root {
+        --bg: #f7f5ef;
+        --paper: #fffdf8;
+        --ink: #161616;
+        --muted: #62615d;
+        --line: #ded8cc;
+        --soft-line: #ece6d9;
+        --green: #0f7a64;
+        --blue: #245f9c;
+        --amber: #b26f14;
+        --red: #a94537;
+        --violet: #7458a8;
+        --shadow: 0 18px 42px rgba(28, 25, 20, 0.08);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--ink);
+        font-family:
+          Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+          "Segoe UI", sans-serif;
+        line-height: 1.62;
+      }
+
+      a {
+        color: var(--green);
+        text-decoration-thickness: 1px;
+        text-underline-offset: 3px;
+      }
+
+      .page {
+        min-height: 100vh;
+      }
+
+      .topbar {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        border-bottom: 1px solid rgba(222, 216, 204, 0.82);
+        background: rgba(247, 245, 239, 0.92);
+        backdrop-filter: blur(14px);
+      }
+
+      .topbar-inner,
+      .wrap {
+        width: min(1180px, calc(100% - 32px));
+        margin: 0 auto;
+      }
+
+      .topbar-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+        padding: 14px 0;
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        min-width: 164px;
+        font-size: 0.82rem;
+        font-weight: 800;
+        letter-spacing: 0;
+        text-transform: uppercase;
+      }
+
+      .mark {
+        width: 22px;
+        height: 22px;
+        border: 2px solid var(--ink);
+        display: grid;
+        place-items: center;
+      }
+
+      .mark::after {
+        width: 8px;
+        height: 8px;
+        background: var(--green);
+        content: "";
+      }
+
+      .nav {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 18px;
+        overflow-x: auto;
+        white-space: nowrap;
+        font-size: 0.9rem;
+      }
+
+      .nav a {
+        color: var(--muted);
+        text-decoration: none;
+      }
+
+      .nav a:hover {
+        color: var(--ink);
+      }
+
+      .hero {
+        padding: 74px 0 44px;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .hero-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 1.08fr) minmax(320px, 0.72fr);
+        gap: 44px;
+        align-items: end;
+      }
+
+      .eyebrow {
+        margin: 0 0 14px;
+        color: var(--green);
+        font-size: 0.78rem;
+        font-weight: 800;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      h1,
+      h2,
+      h3 {
+        line-height: 1.08;
+        letter-spacing: 0;
+      }
+
+      h1 {
+        max-width: 860px;
+        margin: 0;
+        font-size: clamp(2.35rem, 7vw, 5.9rem);
+        font-weight: 820;
+      }
+
+      h2 {
+        margin: 0 0 18px;
+        font-size: clamp(1.75rem, 3vw, 3.15rem);
+        font-weight: 800;
+      }
+
+      h3 {
+        margin: 0;
+        font-size: 1.1rem;
+      }
+
+      .lead {
+        max-width: 820px;
+        margin: 26px 0 0;
+        color: #34332f;
+        font-size: clamp(1.05rem, 2vw, 1.32rem);
+      }
+
+      .hero-meta {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 12px;
+        margin-top: 32px;
+      }
+
+      .metric {
+        border-top: 2px solid var(--ink);
+        padding-top: 12px;
+      }
+
+      .metric strong {
+        display: block;
+        font-size: clamp(1.55rem, 3vw, 2.25rem);
+        line-height: 1;
+      }
+
+      .metric span {
+        display: block;
+        margin-top: 8px;
+        color: var(--muted);
+        font-size: 0.9rem;
+        line-height: 1.35;
+      }
+
+      .viz {
+        border: 1px solid var(--line);
+        background: var(--paper);
+        box-shadow: var(--shadow);
+        padding: 22px;
+      }
+
+      .viz-title {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        margin-bottom: 12px;
+      }
+
+      .viz-title p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 0.88rem;
+      }
+
+      .viz svg {
+        display: block;
+        width: 100%;
+        height: auto;
+      }
+
+      .section {
+        padding: 66px 0;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .section-header {
+        display: grid;
+        grid-template-columns: 0.38fr 1fr;
+        gap: 36px;
+        align-items: start;
+        margin-bottom: 34px;
+      }
+
+      .section-kicker {
+        margin: 0;
+        color: var(--muted);
+        font-size: 0.86rem;
+        font-weight: 800;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .section-header p,
+      .copy p {
+        margin: 0;
+        color: #35342f;
+      }
+
+      .summary-list {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+        margin: 30px 0 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .summary-list li,
+      .signal,
+      .idea,
+      .recommendation,
+      .source-list a {
+        border: 1px solid var(--line);
+        background: var(--paper);
+      }
+
+      .summary-list li {
+        padding: 18px;
+        min-height: 112px;
+      }
+
+      .summary-list strong {
+        display: block;
+        margin-bottom: 8px;
+      }
+
+      .summary-list span {
+        color: var(--muted);
+      }
+
+      .signals-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 16px;
+      }
+
+      .signal {
+        display: grid;
+        grid-template-columns: 42px minmax(0, 1fr);
+        gap: 16px;
+        padding: 18px;
+      }
+
+      .signal-index {
+        width: 42px;
+        height: 42px;
+        display: grid;
+        place-items: center;
+        border: 1px solid var(--ink);
+        color: var(--ink);
+        font-weight: 800;
+      }
+
+      .signal p {
+        margin: 8px 0 0;
+        color: var(--muted);
+      }
+
+      .criteria {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 12px;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .criteria li {
+        border-left: 3px solid var(--green);
+        background: rgba(255, 253, 248, 0.58);
+        padding: 14px 16px;
+      }
+
+      .ideas {
+        display: grid;
+        gap: 14px;
+      }
+
+      .idea {
+        display: grid;
+        grid-template-columns: 72px minmax(0, 1fr);
+        gap: 22px;
+        padding: 24px;
+      }
+
+      .rank {
+        display: grid;
+        align-content: start;
+        gap: 10px;
+      }
+
+      .rank-number {
+        display: grid;
+        place-items: center;
+        width: 52px;
+        height: 52px;
+        border: 1px solid var(--ink);
+        font-size: 1.05rem;
+        font-weight: 850;
+      }
+
+      .rank-tag {
+        width: max-content;
+        max-width: 64px;
+        color: var(--muted);
+        font-size: 0.73rem;
+        font-weight: 800;
+        line-height: 1.15;
+        text-transform: uppercase;
+      }
+
+      .idea-body h3 {
+        font-size: 1.28rem;
+      }
+
+      .idea-meta {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px;
+        margin-top: 18px;
+      }
+
+      .idea-meta div {
+        border-top: 1px solid var(--soft-line);
+        padding-top: 12px;
+      }
+
+      .idea-meta strong {
+        display: block;
+        margin-bottom: 4px;
+        font-size: 0.82rem;
+        text-transform: uppercase;
+      }
+
+      .idea p,
+      .idea-meta span,
+      .recommendation p {
+        color: var(--muted);
+      }
+
+      .idea p {
+        margin: 10px 0 0;
+      }
+
+      .table-wrap {
+        overflow-x: auto;
+        border: 1px solid var(--line);
+        background: var(--paper);
+      }
+
+      table {
+        width: 100%;
+        min-width: 900px;
+        border-collapse: collapse;
+        font-size: 0.94rem;
+      }
+
+      th,
+      td {
+        padding: 14px 16px;
+        border-bottom: 1px solid var(--soft-line);
+        text-align: left;
+        vertical-align: top;
+      }
+
+      th {
+        color: var(--muted);
+        font-size: 0.78rem;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+      }
+
+      tr:last-child td {
+        border-bottom: 0;
+      }
+
+      .heat {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        white-space: nowrap;
+      }
+
+      .dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: var(--green);
+      }
+
+      .dot.high {
+        background: var(--blue);
+      }
+
+      .dot.mid {
+        background: var(--amber);
+      }
+
+      .recommendations {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 16px;
+      }
+
+      .recommendation {
+        padding: 22px;
+      }
+
+      .recommendation .letter {
+        display: inline-grid;
+        place-items: center;
+        width: 34px;
+        height: 34px;
+        margin-bottom: 18px;
+        border: 1px solid var(--ink);
+        font-weight: 850;
+      }
+
+      .strategy {
+        counter-reset: strategy;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .strategy li {
+        counter-increment: strategy;
+        display: grid;
+        grid-template-columns: 44px minmax(0, 1fr);
+        gap: 16px;
+        padding: 18px 0;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .strategy li::before {
+        content: counter(strategy, decimal-leading-zero);
+        color: var(--green);
+        font-weight: 850;
+      }
+
+      .source-list {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+      }
+
+      .source-list a {
+        display: block;
+        padding: 14px 16px;
+        color: var(--ink);
+        text-decoration: none;
+      }
+
+      .source-list a:hover {
+        border-color: var(--green);
+        color: var(--green);
+      }
+
+      footer {
+        padding: 34px 0 46px;
+        color: var(--muted);
+        font-size: 0.9rem;
+      }
+
+      .accent-green {
+        color: var(--green);
+      }
+
+      .accent-blue {
+        color: var(--blue);
+      }
+
+      .accent-red {
+        color: var(--red);
+      }
+
+      .accent-violet {
+        color: var(--violet);
+      }
+
+      @media (max-width: 900px) {
+        .topbar-inner {
+          align-items: flex-start;
+          flex-direction: column;
+          gap: 10px;
+        }
+
+        .hero-grid,
+        .section-header,
+        .signals-grid,
+        .recommendations {
+          grid-template-columns: 1fr;
+        }
+
+        .hero {
+          padding-top: 52px;
+        }
+
+        .viz {
+          max-width: 620px;
+        }
+      }
+
+      @media (max-width: 680px) {
+        .topbar-inner,
+        .wrap {
+          width: min(100% - 24px, 1180px);
+        }
+
+        .hero-meta,
+        .summary-list,
+        .criteria,
+        .idea,
+        .idea-meta,
+        .source-list {
+          grid-template-columns: 1fr;
+        }
+
+        .section {
+          padding: 46px 0;
+        }
+
+        .signal {
+          grid-template-columns: 1fr;
+        }
+
+        .idea {
+          padding: 20px;
+        }
+
+        .rank {
+          display: flex;
+          align-items: center;
+        }
+
+        .rank-tag {
+          max-width: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      <header class="topbar">
+        <div class="topbar-inner">
+          <div class="brand" aria-label="Informe SaaS 2026">
+            <span class="mark" aria-hidden="true"></span>
+            Informe SaaS 2026
+          </div>
+          <nav class="nav" aria-label="Secciones del informe">
+            <a href="#resumen">Resumen</a>
+            <a href="#senales">Señales</a>
+            <a href="#ranking">Ranking</a>
+            <a href="#matriz">Matriz</a>
+            <a href="#recomendacion">Recomendación</a>
+            <a href="#fuentes">Fuentes</a>
+          </nav>
+        </div>
+      </header>
+
+      <main>
+        <section class="hero" id="resumen">
+          <div class="wrap hero-grid">
+            <div>
+              <p class="eyebrow">Actualizado al 13 de mayo de 2026</p>
+              <h1>Problemáticas globales y 10 ideas SaaS de alta rentabilidad</h1>
+              <p class="lead">
+                Las mejores oportunidades SaaS combinan software, datos,
+                automatización con IA, trazabilidad y cumplimiento. El mayor
+                potencial aparece donde el cliente ya tiene presupuesto, riesgo
+                visible y presión externa.
+              </p>
+              <div class="hero-meta" aria-label="Indicadores clave">
+                <div class="metric">
+                  <strong>10</strong>
+                  <span>ideas priorizadas por rentabilidad potencial</span>
+                </div>
+                <div class="metric">
+                  <strong>B2B</strong>
+                  <span>modelo dominante recomendado para tickets altos</span>
+                </div>
+                <div class="metric">
+                  <strong>2026</strong>
+                  <span>contexto de IA, riesgo, salud, energía y regulación</span>
+                </div>
+              </div>
+            </div>
+
+            <aside class="viz" aria-label="Mapa visual de oportunidades">
+              <div class="viz-title">
+                <h3>Mapa de oportunidad</h3>
+                <p>Rentabilidad relativa</p>
+              </div>
+              <svg viewBox="0 0 420 260" role="img" aria-label="Ranking visual de oportunidades SaaS">
+                <rect x="0" y="0" width="420" height="260" fill="#fffdf8" />
+                <g font-family="Inter, system-ui, sans-serif" font-size="12" fill="#62615d">
+                  <text x="16" y="30">AI Governance</text>
+                  <rect x="155" y="17" width="232" height="18" fill="#0f7a64" />
+                  <text x="16" y="60">Riesgo terceros</text>
+                  <rect x="155" y="47" width="216" height="18" fill="#245f9c" />
+                  <text x="16" y="90">Antifraude</text>
+                  <rect x="155" y="77" width="206" height="18" fill="#a94537" />
+                  <text x="16" y="120">Operaciones salud</text>
+                  <rect x="155" y="107" width="180" height="18" fill="#7458a8" />
+                  <text x="16" y="150">Back office IA</text>
+                  <rect x="155" y="137" width="172" height="18" fill="#b26f14" />
+                  <text x="16" y="180">Energy FinOps</text>
+                  <rect x="155" y="167" width="162" height="18" fill="#0f7a64" opacity="0.82" />
+                  <text x="16" y="210">Supply chain risk</text>
+                  <rect x="155" y="197" width="152" height="18" fill="#245f9c" opacity="0.82" />
+                  <line x1="155" y1="232" x2="387" y2="232" stroke="#ded8cc" />
+                  <text x="155" y="250">medio</text>
+                  <text x="338" y="250">muy alto</text>
+                </g>
+              </svg>
+            </aside>
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="wrap">
+            <div class="section-header">
+              <p class="section-kicker">Conclusión principal</p>
+              <div class="copy">
+                <h2>El software más rentable resuelve riesgo, costo o escasez.</h2>
+                <p>
+                  La oportunidad no está en hacer otra aplicación genérica con IA,
+                  sino en resolver problemas donde existe presión regulatoria,
+                  pérdida directa de dinero, escasez operacional o continuidad de
+                  negocio en juego.
+                </p>
+              </div>
+            </div>
+
+            <ul class="summary-list">
+              <li>
+                <strong>IA sin gobierno suficiente</strong>
+                <span>Empresas adoptan IA generativa y agentes más rápido de lo que construyen controles, auditoría y trazabilidad.</span>
+              </li>
+              <li>
+                <strong>Riesgo digital como problema de directorio</strong>
+                <span>Ciberseguridad, fraude y terceros ya no son solo temas técnicos; afectan continuidad, reputación y cumplimiento.</span>
+              </li>
+              <li>
+                <strong>Demografía y salud tensionadas</strong>
+                <span>Envejecimiento, falta de personal sanitario y salud mental impulsan demanda por eficiencia y coordinación.</span>
+              </li>
+              <li>
+                <strong>Energía, clima y cadenas frágiles</strong>
+                <span>IA, centros de datos, clima extremo y proveedores vulnerables crean nuevas categorías de software operativo.</span>
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="section" id="senales">
+          <div class="wrap">
+            <div class="section-header">
+              <p class="section-kicker">Señales globales</p>
+              <div>
+                <h2>Problemas grandes, presupuestos reales.</h2>
+                <p>
+                  Las tendencias con mayor valor comercial tienen algo en común:
+                  el comprador puede justificar el gasto por pérdida evitada,
+                  cumplimiento o ahorro medible.
+                </p>
+              </div>
+            </div>
+
+            <div class="signals-grid">
+              <article class="signal">
+                <span class="signal-index">01</span>
+                <div>
+                  <h3>IA: adopción rápida, gobierno inmaduro</h3>
+                  <p>
+                    La adopción de IA generativa avanza, pero muchas organizaciones
+                    siguen en etapas tempranas de rediseño de procesos, gestión de
+                    riesgos y captura sistemática de valor.
+                  </p>
+                </div>
+              </article>
+              <article class="signal">
+                <span class="signal-index">02</span>
+                <div>
+                  <h3>Ciberseguridad y resiliencia operacional</h3>
+                  <p>
+                    El costo promedio global de una brecha de datos ronda los
+                    US$4,4 millones en 2025. Ransomware, credenciales y terceros
+                    son vectores recurrentes.
+                  </p>
+                </div>
+              </article>
+              <article class="signal">
+                <span class="signal-index">03</span>
+                <div>
+                  <h3>Fraude, estafas y abuso de identidad</h3>
+                  <p>
+                    Consumidores reportaron pérdidas por fraude superiores a
+                    US$12.500 millones en 2024, con mayor riesgo por deepfakes,
+                    phishing automatizado y suplantación.
+                  </p>
+                </div>
+              </article>
+              <article class="signal">
+                <span class="signal-index">04</span>
+                <div>
+                  <h3>Salud y envejecimiento</h3>
+                  <p>
+                    La OMS proyecta un déficit de 10 millones de trabajadores de
+                    salud para 2030, mientras aumenta la demanda de cuidados y
+                    coordinación clínica.
+                  </p>
+                </div>
+              </article>
+              <article class="signal">
+                <span class="signal-index">05</span>
+                <div>
+                  <h3>Salud mental y productividad</h3>
+                  <p>
+                    Depresión y ansiedad generan pérdidas de productividad cercanas
+                    a US$1 billón anual. Empleadores y aseguradoras necesitan
+                    prevención, navegación y medición.
+                  </p>
+                </div>
+              </article>
+              <article class="signal">
+                <span class="signal-index">06</span>
+                <div>
+                  <h3>Energía, IA y centros de datos</h3>
+                  <p>
+                    El consumo eléctrico de centros de datos sigue subiendo por IA,
+                    nube y cómputo intensivo, abriendo oportunidades en eficiencia
+                    y programación de cargas.
+                  </p>
+                </div>
+              </article>
+              <article class="signal">
+                <span class="signal-index">07</span>
+                <div>
+                  <h3>Trabajo, habilidades y productividad</h3>
+                  <p>
+                    IA, automatización, transición verde y demografía cambian las
+                    habilidades requeridas y empujan inversión en upskilling
+                    medible y movilidad interna.
+                  </p>
+                </div>
+              </article>
+              <article class="signal">
+                <span class="signal-index">08</span>
+                <div>
+                  <h3>Clima, cadenas de suministro y reportabilidad</h3>
+                  <p>
+                    Riesgos ambientales, desinformación, ciberseguridad y tensiones
+                    geopolíticas elevan la necesidad de inteligencia operativa y
+                    datos verificables.
+                  </p>
+                </div>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="wrap">
+            <div class="section-header">
+              <p class="section-kicker">Criterios</p>
+              <div>
+                <h2>Cómo se priorizó la rentabilidad.</h2>
+                <p>
+                  Cada idea fue evaluada por dolor económico, presupuesto del
+                  comprador, urgencia temporal, retención, margen SaaS y expansión.
+                </p>
+              </div>
+            </div>
+            <ul class="criteria">
+              <li>Dolor económico directo: pérdida, multa, costo operacional o riesgo de continuidad.</li>
+              <li>Comprador con presupuesto: empresa, banco, aseguradora, hospital, gobierno o gran proveedor.</li>
+              <li>Urgencia temporal: regulación, incidentes, presión competitiva o escasez de personal.</li>
+              <li>Retención: qué tan difícil sería abandonar el producto una vez integrado.</li>
+              <li>Margen SaaS: posibilidad de vender software recurrente sin servicios excesivos.</li>
+              <li>Expansión: módulos, consumo, usuarios adicionales, datos históricos e integraciones.</li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="section" id="ranking">
+          <div class="wrap">
+            <div class="section-header">
+              <p class="section-kicker">Ranking</p>
+              <div>
+                <h2>10 ideas SaaS con mayor potencial.</h2>
+                <p>
+                  Ordenadas por capacidad de generar contratos recurrentes,
+                  justificar ROI y volverse parte de flujos críticos del cliente.
+                </p>
+              </div>
+            </div>
+
+            <div class="ideas">
+              <article class="idea">
+                <div class="rank">
+                  <span class="rank-number">01</span>
+                  <span class="rank-tag accent-green">Muy alto</span>
+                </div>
+                <div class="idea-body">
+                  <h3>AI Governance OS para empresas reguladas</h3>
+                  <p>
+                    Plataforma para inventariar modelos y agentes, clasificar
+                    riesgo, registrar prompts/datos/salidas, controlar accesos,
+                    monitorear desviaciones y generar evidencia para auditoría.
+                  </p>
+                  <div class="idea-meta">
+                    <div>
+                      <strong>Cliente ideal</strong>
+                      <span>Bancos, aseguradoras, salud, telecomunicaciones, retail grande y SaaS B2B.</span>
+                    </div>
+                    <div>
+                      <strong>Modelo de ingresos</strong>
+                      <span>Suscripción anual + módulos por regulación + cobro por sistemas/agentes monitoreados.</span>
+                    </div>
+                    <div>
+                      <strong>Por qué es rentable</strong>
+                      <span>Combina regulación, riesgo reputacional, IA y auditoría; el producto puede convertirse en sistema de registro.</span>
+                    </div>
+                    <div>
+                      <strong>Riesgo</strong>
+                      <span>Mercado competitivo; requiere integración profunda y especialización por industria.</span>
+                    </div>
+                  </div>
+                </div>
+              </article>
+
+              <article class="idea">
+                <div class="rank">
+                  <span class="rank-number">02</span>
+                  <span class="rank-tag accent-blue">Muy alto</span>
+                </div>
+                <div class="idea-body">
+                  <h3>Plataforma de resiliencia digital y riesgo de terceros</h3>
+                  <p>
+                    Registro vivo de proveedores, scoring de riesgo, monitoreo de
+                    incidentes, cuestionarios automatizados, evidencia documental,
+                    concentración de dependencia, continuidad y simulacros.
+                  </p>
+                  <div class="idea-meta">
+                    <div>
+                      <strong>Cliente ideal</strong>
+                      <span>Bancos, fintechs, aseguradoras, utilities, salud, logística, gobierno y empresas sujetas a DORA o NIS2.</span>
+                    </div>
+                    <div>
+                      <strong>Modelo de ingresos</strong>
+                      <span>Licencia por organización + número de proveedores + módulos de monitoreo continuo.</span>
+                    </div>
+                    <div>
+                      <strong>Por qué es rentable</strong>
+                      <span>Es un dolor de cumplimiento y continuidad; permite expansión por cada proveedor incorporado.</span>
+                    </div>
+                    <div>
+                      <strong>Riesgo</strong>
+                      <span>Necesita datos confiables e integraciones con GRC, ticketing y seguridad.</span>
+                    </div>
+                  </div>
+                </div>
+              </article>
+
+              <article class="idea">
+                <div class="rank">
+                  <span class="rank-number">03</span>
+                  <span class="rank-tag accent-red">Muy alto</span>
+                </div>
+                <div class="idea-body">
+                  <h3>SaaS antifraude y antideepfake para bancos, fintechs y marketplaces</h3>
+                  <p>
+                    Motor de señales de fraude para onboarding, transacciones,
+                    llamadas, reclamos y cambios de cuenta; incluye liveness,
+                    análisis conductual, alertas y panel de investigación.
+                  </p>
+                  <div class="idea-meta">
+                    <div>
+                      <strong>Cliente ideal</strong>
+                      <span>Bancos, fintechs, wallets, e-commerce, marketplaces, telecomunicaciones y aseguradoras.</span>
+                    </div>
+                    <div>
+                      <strong>Modelo de ingresos</strong>
+                      <span>Fee mensual + precio por verificación/transacción + revenue share por fraude evitado.</span>
+                    </div>
+                    <div>
+                      <strong>Por qué es rentable</strong>
+                      <span>Vende contra pérdidas directas; si evita fraude medible, el argumento de compra es financiero.</span>
+                    </div>
+                    <div>
+                      <strong>Riesgo</strong>
+                      <span>Debe equilibrar precisión, baja fricción de usuario y privacidad.</span>
+                    </div>
+                  </div>
+                </div>
+              </article>
+
+              <article class="idea">
+                <div class="rank">
+                  <span class="rank-number">04</span>
+                  <span class="rank-tag accent-violet">Alto</span>
+                </div>
+                <div class="idea-body">
+                  <h3>Copiloto de operaciones clínicas y fuerza laboral sanitaria</h3>
+                  <p>
+                    Predicción de demanda, optimización de turnos, priorización de
+                    pacientes, automatización administrativa, coordinación de camas,
+                    derivaciones y analítica de productividad clínica.
+                  </p>
+                  <div class="idea-meta">
+                    <div>
+                      <strong>Cliente ideal</strong>
+                      <span>Hospitales, clínicas, redes de atención primaria, home care, aseguradoras y gobiernos regionales.</span>
+                    </div>
+                    <div>
+                      <strong>Modelo de ingresos</strong>
+                      <span>Suscripción por sede/cama/profesional + módulos premium de IA.</span>
+                    </div>
+                    <div>
+                      <strong>Por qué es rentable</strong>
+                      <span>El ahorro por mejor uso de personal y menor demora puede ser grande; los contratos son pegajosos.</span>
+                    </div>
+                    <div>
+                      <strong>Riesgo</strong>
+                      <span>Ventas largas, integración con EHR/HIS y responsabilidad clínica.</span>
+                    </div>
+                  </div>
+                </div>
+              </article>
+
+              <article class="idea">
+                <div class="rank">
+                  <span class="rank-number">05</span>
+                  <span class="rank-tag">Alto</span>
+                </div>
+                <div class="idea-body">
+                  <h3>Automatización con agentes para back office regulado</h3>
+                  <p>
+                    Agentes especializados que leen documentos, ejecutan tareas,
+                    solicitan aprobaciones humanas, registran evidencias y se
+                    integran con ERP, CRM y ticketing.
+                  </p>
+                  <div class="idea-meta">
+                    <div>
+                      <strong>Cliente ideal</strong>
+                      <span>Aseguradoras, bancos, firmas legales, BPOs, contabilidad enterprise y operaciones documentales masivas.</span>
+                    </div>
+                    <div>
+                      <strong>Modelo de ingresos</strong>
+                      <span>Suscripción por proceso + cobro por ejecución/documento + plan enterprise.</span>
+                    </div>
+                    <div>
+                      <strong>Por qué es rentable</strong>
+                      <span>Puede capturar parte del ahorro si reemplaza horas manuales y reduce errores.</span>
+                    </div>
+                    <div>
+                      <strong>Riesgo</strong>
+                      <span>Prometer demasiado; debe partir con un proceso estrecho y ROI demostrable.</span>
+                    </div>
+                  </div>
+                </div>
+              </article>
+
+              <article class="idea">
+                <div class="rank">
+                  <span class="rank-number">06</span>
+                  <span class="rank-tag accent-green">Alto</span>
+                </div>
+                <div class="idea-body">
+                  <h3>Energy/Compute FinOps para IA y centros de datos</h3>
+                  <p>
+                    Predicción de demanda, programación inteligente de cargas,
+                    recomendación de regiones y horarios, optimización GPU,
+                    integración con contratos eléctricos y reportes costo-carbono.
+                  </p>
+                  <div class="idea-meta">
+                    <div>
+                      <strong>Cliente ideal</strong>
+                      <span>Data centers, empresas con entrenamiento/inferencia de IA, SaaS intensivos en nube, manufactura digital y utilities.</span>
+                    </div>
+                    <div>
+                      <strong>Modelo de ingresos</strong>
+                      <span>SaaS + porcentaje del ahorro verificado + módulo enterprise de integración.</span>
+                    </div>
+                    <div>
+                      <strong>Por qué es rentable</strong>
+                      <span>Ataca una línea de gasto creciente y cuantificable; permite pricing basado en ahorro.</span>
+                    </div>
+                    <div>
+                      <strong>Riesgo</strong>
+                      <span>Necesita acceso a datos técnicos sensibles y demostrar ahorros reales.</span>
+                    </div>
+                  </div>
+                </div>
+              </article>
+
+              <article class="idea">
+                <div class="rank">
+                  <span class="rank-number">07</span>
+                  <span class="rank-tag accent-blue">Alto</span>
+                </div>
+                <div class="idea-body">
+                  <h3>Climate & Supply Chain Risk Intelligence</h3>
+                  <p>
+                    Mapa de exposición de proveedores y activos, alertas climáticas
+                    y geopolíticas, escenarios de interrupción, planes de mitigación
+                    y reportes para directorio.
+                  </p>
+                  <div class="idea-meta">
+                    <div>
+                      <strong>Cliente ideal</strong>
+                      <span>Manufactura, retail, alimentos, logística, seguros, infraestructura, inmobiliarias comerciales y fondos.</span>
+                    </div>
+                    <div>
+                      <strong>Modelo de ingresos</strong>
+                      <span>Suscripción por activos/proveedores + datos premium + módulos de reporte.</span>
+                    </div>
+                    <div>
+                      <strong>Por qué es rentable</strong>
+                      <span>Combina riesgo operativo, seguros y reportabilidad; los datos históricos aumentan valor.</span>
+                    </div>
+                    <div>
+                      <strong>Riesgo</strong>
+                      <span>Diferenciarse de ESG genérico; foco en decisiones operativas y riesgo evitado.</span>
+                    </div>
+                  </div>
+                </div>
+              </article>
+
+              <article class="idea">
+                <div class="rank">
+                  <span class="rank-number">08</span>
+                  <span class="rank-tag">Medio alto</span>
+                </div>
+                <div class="idea-body">
+                  <h3>Skills Intelligence SaaS para reskilling y movilidad interna</h3>
+                  <p>
+                    Grafo de habilidades, inferencia desde roles/proyectos,
+                    diagnóstico de brechas, rutas de aprendizaje, marketplace
+                    interno de talento y medición de impacto.
+                  </p>
+                  <div class="idea-meta">
+                    <div>
+                      <strong>Cliente ideal</strong>
+                      <span>Corporaciones de más de 1.000 empleados, gobiernos, universidades corporativas e industrias automatizadas.</span>
+                    </div>
+                    <div>
+                      <strong>Modelo de ingresos</strong>
+                      <span>Precio por empleado + módulos de analítica y contenido.</span>
+                    </div>
+                    <div>
+                      <strong>Por qué es rentable</strong>
+                      <span>RR.HH., transformación digital y productividad convergen; la expansión por empleado es natural.</span>
+                    </div>
+                    <div>
+                      <strong>Riesgo</strong>
+                      <span>Mercado saturado por LMS y HCM; debe demostrar movilidad interna real.</span>
+                    </div>
+                  </div>
+                </div>
+              </article>
+
+              <article class="idea">
+                <div class="rank">
+                  <span class="rank-number">09</span>
+                  <span class="rank-tag">Medio alto</span>
+                </div>
+                <div class="idea-body">
+                  <h3>Coordinación para envejecimiento y cuidado en casa</h3>
+                  <p>
+                    Coordinación de cuidadores, agenda médica, adherencia a
+                    medicación, alertas de riesgo, check-ins familiares,
+                    documentación para seguros y panel de casos.
+                  </p>
+                  <div class="idea-meta">
+                    <div>
+                      <strong>Cliente ideal</strong>
+                      <span>Agencias de home care, aseguradoras, redes de salud, residencias, gobiernos locales y empleadores.</span>
+                    </div>
+                    <div>
+                      <strong>Modelo de ingresos</strong>
+                      <span>Suscripción por paciente/caso + módulos de integración + planes para aseguradoras.</span>
+                    </div>
+                    <div>
+                      <strong>Por qué es rentable</strong>
+                      <span>Necesidad demográfica estructural, costos sanitarios altos y disposición de pago institucional.</span>
+                    </div>
+                    <div>
+                      <strong>Riesgo</strong>
+                      <span>Complejidad operacional y privacidad; conviene iniciar con software para agencias.</span>
+                    </div>
+                  </div>
+                </div>
+              </article>
+
+              <article class="idea">
+                <div class="rank">
+                  <span class="rank-number">10</span>
+                  <span class="rank-tag">Medio alto</span>
+                </div>
+                <div class="idea-body">
+                  <h3>Salud mental laboral con navegación clínica y analítica de riesgo</h3>
+                  <p>
+                    Detección temprana, navegación a servicios, medición de
+                    outcomes, derivación a terapeutas, gestión de burnout por
+                    equipos y panel de riesgo agregado con privacidad.
+                  </p>
+                  <div class="idea-meta">
+                    <div>
+                      <strong>Cliente ideal</strong>
+                      <span>Empresas medianas/grandes, aseguradoras, brokers de beneficios y redes de atención.</span>
+                    </div>
+                    <div>
+                      <strong>Modelo de ingresos</strong>
+                      <span>Precio por empleado por mes + servicios clínicos asociados + contratos con aseguradoras.</span>
+                    </div>
+                    <div>
+                      <strong>Por qué es rentable</strong>
+                      <span>El dolor es masivo y recurrente; mejora si demuestra reducción de ausentismo.</span>
+                    </div>
+                    <div>
+                      <strong>Riesgo</strong>
+                      <span>Mercado competitivo y alta sensibilidad ética; requiere resultados medibles y privacidad fuerte.</span>
+                    </div>
+                  </div>
+                </div>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section class="section" id="matriz">
+          <div class="wrap">
+            <div class="section-header">
+              <p class="section-kicker">Matriz</p>
+              <div>
+                <h2>Comparación ejecutiva.</h2>
+                <p>
+                  Una vista rápida para contrastar potencial, velocidad de venta,
+                  complejidad y mercado inicial.
+                </p>
+              </div>
+            </div>
+
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Ranking</th>
+                    <th>Idea</th>
+                    <th>Potencial</th>
+                    <th>Venta</th>
+                    <th>Complejidad</th>
+                    <th>Mercado inicial</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>1</td>
+                    <td>AI Governance OS</td>
+                    <td><span class="heat"><span class="dot"></span>Muy alto</span></td>
+                    <td>Media</td>
+                    <td>Alta</td>
+                    <td>UE, banca, salud, SaaS B2B</td>
+                  </tr>
+                  <tr>
+                    <td>2</td>
+                    <td>Riesgo de terceros y resiliencia</td>
+                    <td><span class="heat"><span class="dot high"></span>Muy alto</span></td>
+                    <td>Media</td>
+                    <td>Media-alta</td>
+                    <td>Finanzas, utilities, salud</td>
+                  </tr>
+                  <tr>
+                    <td>3</td>
+                    <td>Antifraude y antideepfake</td>
+                    <td><span class="heat"><span class="dot"></span>Muy alto</span></td>
+                    <td>Media</td>
+                    <td>Alta</td>
+                    <td>Fintech, bancos, marketplaces</td>
+                  </tr>
+                  <tr>
+                    <td>4</td>
+                    <td>Operaciones clínicas</td>
+                    <td><span class="heat"><span class="dot high"></span>Alto</span></td>
+                    <td>Lenta</td>
+                    <td>Alta</td>
+                    <td>Clínicas privadas, redes de salud</td>
+                  </tr>
+                  <tr>
+                    <td>5</td>
+                    <td>Agentes para back office regulado</td>
+                    <td><span class="heat"><span class="dot mid"></span>Alto</span></td>
+                    <td>Media</td>
+                    <td>Media-alta</td>
+                    <td>Seguros, legal, finanzas</td>
+                  </tr>
+                  <tr>
+                    <td>6</td>
+                    <td>Energy/Compute FinOps</td>
+                    <td><span class="heat"><span class="dot"></span>Alto</span></td>
+                    <td>Media</td>
+                    <td>Alta</td>
+                    <td>IA, data centers, cloud-heavy SaaS</td>
+                  </tr>
+                  <tr>
+                    <td>7</td>
+                    <td>Climate & Supply Chain Risk</td>
+                    <td><span class="heat"><span class="dot high"></span>Alto</span></td>
+                    <td>Media</td>
+                    <td>Media</td>
+                    <td>Manufactura, seguros, retail</td>
+                  </tr>
+                  <tr>
+                    <td>8</td>
+                    <td>Skills Intelligence</td>
+                    <td><span class="heat"><span class="dot mid"></span>Medio-alto</span></td>
+                    <td>Media</td>
+                    <td>Media</td>
+                    <td>Corporaciones grandes</td>
+                  </tr>
+                  <tr>
+                    <td>9</td>
+                    <td>Coordinación de cuidado en casa</td>
+                    <td><span class="heat"><span class="dot mid"></span>Medio-alto</span></td>
+                    <td>Media-lenta</td>
+                    <td>Media-alta</td>
+                    <td>Home care, aseguradoras</td>
+                  </tr>
+                  <tr>
+                    <td>10</td>
+                    <td>Salud mental laboral</td>
+                    <td><span class="heat"><span class="dot mid"></span>Medio-alto</span></td>
+                    <td>Media</td>
+                    <td>Alta</td>
+                    <td>Empresas, aseguradoras</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <section class="section" id="recomendacion">
+          <div class="wrap">
+            <div class="section-header">
+              <p class="section-kicker">Recomendación</p>
+              <div>
+                <h2>Las 3 mejores oportunidades para iniciar.</h2>
+                <p>
+                  Si el objetivo es maximizar rentabilidad, conviene empezar por
+                  SaaS B2B regulado, ticket anual alto, ventas consultivas pero
+                  repetibles y datos que acumulen valor con el tiempo.
+                </p>
+              </div>
+            </div>
+
+            <div class="recommendations">
+              <article class="recommendation">
+                <span class="letter">A</span>
+                <h3>AI Governance OS</h3>
+                <p>
+                  Mejor mezcla de urgencia regulatoria, presupuesto enterprise,
+                  expansión modular y retención. El MVP debería resolver
+                  inventario de IA, clasificación de riesgo, aprobaciones,
+                  evidencias y monitoreo básico.
+                </p>
+              </article>
+              <article class="recommendation">
+                <span class="letter">B</span>
+                <h3>Riesgo de terceros</h3>
+                <p>
+                  Demanda clara por cumplimiento y continuidad. El MVP debería
+                  partir con registro de proveedores, evidencias, scoring, alertas
+                  y reportes ejecutivos.
+                </p>
+              </article>
+              <article class="recommendation">
+                <span class="letter">C</span>
+                <h3>Antifraude y antideepfake</h3>
+                <p>
+                  Argumento comercial directo: pérdidas evitadas. El MVP debería
+                  enfocarse en protección de cambios de cuenta, onboarding de alto
+                  riesgo o validación de llamadas sospechosas.
+                </p>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="wrap">
+            <div class="section-header">
+              <p class="section-kicker">Ruta estratégica</p>
+              <div>
+                <h2>Cómo convertir la idea en un SaaS defendible.</h2>
+                <p>
+                  La estrategia debe evitar competir como herramienta genérica de
+                  IA y enfocarse en reducción de riesgo, cumplimiento y ahorro
+                  medible.
+                </p>
+              </div>
+            </div>
+
+            <ol class="strategy">
+              <li>Empezar con AI Governance OS o riesgo de terceros.</li>
+              <li>Diseñar desde el primer día para auditoría, seguridad, permisos y trazabilidad.</li>
+              <li>Vender a un nicho regulado antes de expandir horizontalmente.</li>
+              <li>Evitar competir como herramienta genérica de IA; vender reducción de riesgo, cumplimiento y ahorro medible.</li>
+              <li>Construir integraciones con Slack, Teams, Jira, ServiceNow, Workday, SAP, Salesforce, GRC, SIEM y repositorios documentales.</li>
+            </ol>
+          </div>
+        </section>
+
+        <section class="section" id="fuentes">
+          <div class="wrap">
+            <div class="section-header">
+              <p class="section-kicker">Fuentes</p>
+              <div>
+                <h2>Referencias consultadas.</h2>
+                <p>
+                  El informe se apoyó en fuentes globales sobre riesgos,
+                  ciberseguridad, IA, salud, energía, trabajo y regulación.
+                </p>
+              </div>
+            </div>
+
+            <div class="source-list">
+              <a href="https://www.weforum.org/publications/global-risks-report-2026/">World Economic Forum, Global Risks Report 2026</a>
+              <a href="https://www.weforum.org/publications/the-future-of-jobs-report-2025/">World Economic Forum, Future of Jobs Report 2025</a>
+              <a href="https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai">McKinsey, The State of AI 2025</a>
+              <a href="https://www.ibm.com/reports/data-breach">IBM, Cost of a Data Breach Report 2025</a>
+              <a href="https://www.verizon.com/business/resources/reports/dbir/">Verizon, Data Breach Investigations Report 2025</a>
+              <a href="https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai">European Commission, AI Act</a>
+              <a href="https://eba.europa.eu/activities/direct-supervision-and-oversight/digital-operational-resilience-act/preparation-dora-application">European Banking Authority, DORA</a>
+              <a href="https://finance.ec.europa.eu/news/commission-seeks-feedback-revised-sustainability-reporting-standards-2026-05-06_en">European Commission, revised sustainability reporting standards 2026</a>
+              <a href="https://www.who.int/health-topics/health-workforce">WHO, health workforce</a>
+              <a href="https://www.who.int/teams/mental-health-and-substance-use/promotion-prevention/mental-health-in-the-workplace">WHO, mental health at work</a>
+              <a href="https://population.un.org/wpp/">UN, World Population Prospects 2024</a>
+              <a href="https://www.iea.org/news/data-centre-electricity-use-surged-in-2025-even-with-tightening-bottlenecks-driving-a-scramble-for-solutions">IEA, data centre electricity use</a>
+              <a href="https://www.ftc.gov/news-events/news/press-releases/2025/03/new-ftc-data-show-big-jump-reported-losses-fraud-125-billion-2024">FTC, reported fraud losses 2024</a>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer>
+        <div class="wrap">
+          Informe estático generado a partir de
+          <code>informe_saas_tendencias_2026.md</code>.
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>
